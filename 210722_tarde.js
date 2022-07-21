@@ -26,9 +26,7 @@ let products = [
 // 1. Adicione um ID exclusivo a cada produto começando em 1.
 
 const addId = () => {
-  for (var i = 0; i < products.length; i++) {
-    products[i] = { ...products[i], id: i + 1 };
-  }
+  products = products.map((item, idx) => ({ ...item, id: idx + 1 }));
 };
 
 addId();
@@ -39,21 +37,21 @@ const printNames = () => {
   products.forEach((item) => console.log(item.name));
 };
 
-//printNames();
+printNames();
 
 // 3. Imprima no console o produto com o id 3.
 
 const printCondition1 = () => {
   console.log(products.find((item) => item.id === 3));
 };
-//printCondition1();
+printCondition1();
 
 // 4. Imprima no console os produtos com a cor “black”.
 
 const printCondition2 = () => {
   console.log(products.filter((item) => item.colors.includes("black")));
 };
-// printCondition2();
+printCondition2();
 
 // 5. Imprima no console os produtos que não possuem cor.
 
