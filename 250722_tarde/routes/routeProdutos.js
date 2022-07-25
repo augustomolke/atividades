@@ -1,9 +1,49 @@
 const express = require("express");
 
 const routes = express.Router();
-let produtos = [];
-
-// - POST para adicionar 4 produtos, de uma vez.
+let produtos = [
+  {
+    id: 1,
+    name: "Macbook",
+    price: 1300,
+    quantity: 40,
+    colors: ["silver", "black", "white"],
+  },
+  {
+    id: 2,
+    name: "Iphone",
+    price: 1000,
+    quantity: 50,
+    colors: ["silver", "red", "white"],
+  },
+  { id: 3, name: "Pendrive", price: 10, quantity: 10, colors: [] },
+  { id: 4, name: "Headset", price: 50, quantity: 0, colors: ["black"] },
+  {
+    id: 5,
+    name: "Mouse",
+    price: 20,
+    quantity: 5,
+    colors: ["white", "black", "blue"],
+  },
+  {
+    id: 6,
+    name: "Tablet",
+    price: 500,
+    quantity: 20,
+    colors: ["white", "black"],
+  },
+  { id: 7, name: "USB adaptor", price: 5, quantity: 0, colors: [] },
+  { id: 8, name: "Keyboard", price: 30, quantity: 35, colors: ["white"] },
+  {
+    id: 9,
+    name: "Gamepad",
+    price: 30,
+    quantity: 25,
+    colors: ["black", "silver"],
+  },
+  { id: 10, name: "Monitor", price: 200, quantity: 3, colors: [] },
+];
+// - POST
 
 routes.post("/", (req, res) => {
   const body = req.body;
@@ -12,7 +52,7 @@ routes.post("/", (req, res) => {
   res.status(200).json(produtos);
 });
 
-// - PUT para modificar um desses produtos.
+// - PUT
 
 routes.put("/:id", (req, res) => {
   const id = Number(req.params.id);
@@ -28,7 +68,7 @@ routes.put("/:id", (req, res) => {
   res.status(200).json(produtos);
 });
 
-// - DELETE para deletar um desses produtos.
+// - DELETE
 
 routes.delete("/:id", (req, res) => {
   const id = Number(req.params.id);
@@ -37,7 +77,7 @@ routes.delete("/:id", (req, res) => {
   res.status(201).json(produtos);
 });
 
-// - GET para verificar os que foram mantidos.
+// - GET
 
 routes.get("/", (req, res) => {
   res.status(200).json(produtos);
